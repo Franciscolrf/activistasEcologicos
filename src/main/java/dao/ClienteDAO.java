@@ -5,13 +5,18 @@
 package dao;
 
 /**
- *
+ * Clase que implementa el acceso a datos de la tabla Cliente
  * @author ID145
  */
 public class ClienteDAO {
 
+    // Atributo que representa la conexión a la base de datos
     private EntityManager entityManager;
 
+    /**
+     * Constructor que recibe la conexión a la base de datos
+     * @param entityManager
+     */
     public ClienteDAO(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
@@ -66,5 +71,7 @@ public class ClienteDAO {
         query.setParameter("letra", "%" + letra);
         return query.getResultList();
     }
-    
+
+
+
 }
