@@ -132,14 +132,6 @@ public class EjemploActivistas {
         //em.persist(activista6);
         //em.getTransaction().commit();
         
-        Activista a = em.find(Activista.class, 14L);
-        if (a!=null) {
-            em.remove(a);
-            System.out.println("Activista eliminado");
-        }else{
-            System.out.println("Activista no encontrado");
-        }
-        em.getTransaction().commit();
 
 
         //Buscar activistas entre las fechas 1 de enero de 2024 y 31 de marzo de 2024
