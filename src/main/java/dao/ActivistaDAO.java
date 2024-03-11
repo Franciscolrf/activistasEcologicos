@@ -59,7 +59,7 @@ public class ActivistaDAO {
      */
     public List<Activista> buscarActivistaPorFecha(Calendar fechaInicio, Calendar fechaFin) {
         // Se crea la consulta
-        String jpql = "SELECT a FROM Activista a WHERE a.fechaInicioLabores BETWEEN :fecha1 AND :fecha2"; // Uso de between
+        String jpql = "SELECT a FROM Activista a WHERE a.fechaInicioLabores BETWEEN :fechaInicio AND :fechaFin"; // Uso de between
         TypedQuery<Activista> query = entityManager.createQuery(jpql, Activista.class); // Se crea la consulta
         query.setParameter("fechaInicio", fechaInicio); // Se asigna el valor a la variable
         query.setParameter("fechaFin", fechaFin); // Se asigna el valor a la variable

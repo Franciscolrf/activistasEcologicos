@@ -1,1 +1,8 @@
+dao\ActivistaDAO.class
+objetos\Problema_.class
+objetos\Activista_.class
+objetos\Telefono_.class
+objetos\Direccion_.class
+objetos\Cliente_.class
 dao\ClienteDAO.class
+dao\ProblemaDAO.class
