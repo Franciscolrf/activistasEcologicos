@@ -126,7 +126,7 @@ public class EjemploActivistas {
         // Pruebas para los métodos de ActivistaDAO 
 
         //Crear activista entre las fechas 1 de enero de 2024 y 31 de marzo de 2024
-        ActivistaDAO adao = new ActivistaDAO(em);
+        //ActivistaDAO adao = new ActivistaDAO(em);
         //Activista activista5 = new Activista("Juan", "Perez", "Lopez", "6444224133", new GregorianCalendar(2024, 1, 19));
         //Activista activista6 = new Activista("Pedro", "Manuel", "Sanchez", "6444224193", new GregorianCalendar(2024, 2, 19));
         //em.persist(activista5);
@@ -136,20 +136,22 @@ public class EjemploActivistas {
 
 
         //Buscar activistas entre las fechas 1 de enero de 2024 y 31 de marzo de 2024
-        List<Activista> activistas = adao.buscarActivistaPorFecha();
-        System.out.println("Activistas entre las fechas 1 de enero de 2024 y 31 de marzo de 2024");
-        for (Activista activista : activistas) {
-            System.out.println(activista.toString());
-        }
+        //List<Activista> activistas = adao.buscarActivistaPorFecha();
+        //System.out.println("Activistas entre las fechas 1 de enero de 2024 y 31 de marzo de 2024");
+        //for (Activista activista : activistas) {
+        //    System.out.println(activista.toString());
+        //}
 
         //Prueba de método con parámetros
-        Calendar fechaInicio = new GregorianCalendar(2024, 1, 1);
-        Calendar fechaFin = new GregorianCalendar(2024, 3, 31);
-        List<Activista> activistas2 = adao.buscarActivistaPorFecha(fechaInicio, fechaFin);
-        System.out.println("Activistas entre las fechas 1 de enero de 2024 y 31 de marzo de 2024 (con parámetros)");
-        for (Activista activista : activistas2) {
-            System.out.println(activista.toString());
-        }
+        //Calendar fechaInicio = new GregorianCalendar(2024, 1, 1);
+        //Calendar fechaFin = new GregorianCalendar(2024, 3, 31);
+        //List<Activista> activistas2 = adao.buscarActivistaPorFecha(fechaInicio, fechaFin);
+        //System.out.println("Activistas entre las fechas 1 de enero de 2024 y 31 de marzo de 2024 (con parámetros)");
+        //for (Activista activista : activistas2) {
+        //    System.out.println(activista.toString());
+        //}
+
+        
         // Prueba del método creado en ClienteDAO para buscar una lista de Clientes que su apellido inicie o termine con la letra A. 
         ClienteDAO cdao = new ClienteDAO(em);
         List<Cliente> clientesInicio = cdao.buscarApellidoClientePorLetraInicio("A");
