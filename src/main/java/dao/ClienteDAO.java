@@ -4,6 +4,11 @@
  */
 package dao;
 
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import objetos.Cliente;
+
 /**
  * Clase que implementa el acceso a datos de la tabla Cliente
  * @author ID145
