@@ -139,9 +139,26 @@ public class Cliente implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return "Cliente{" + "id=" + id + ", nombres=" + nombres + ", apPaterno=" + apPaterno + ", apMaterno=" + apMaterno + '}';
+public String toString() {
+    SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
+    String formattedDate = dateFormat.format(fechaInicio.getTime());
+
+    String idFormatted = String.format("| %-4s", id);
+    String nombresFormatted = String.format("| %-15s", nombres);
+    String apPaternoFormatted = String.format("| %-15s", apPaterno);
+    String apMaternoFormatted = String.format("| %-15s", apMaterno);
+    String direccionFormatted = ""; // Agrega formateo para la dirección si es necesario
+    if (direcciones != null && !direcciones.isEmpty()) {
+        direccionFormatted = String.format("| %-50s", direcciones.get(0).toString());
     }
+    
+    return String.format("+------+-----------------+-----------------+-----------------+-----------------+\n"
+            + "| ID   | Nombres         | Apellido Paterno| Apellido Materno| Dirección       |\n"
+            + "+------+-----------------+-----------------+-----------------+-----------------+\n"
+            + idFormatted + nombresFormatted + apPaternoFormatted + apMaternoFormatted + direccionFormatted + "|\n"
+            + "+------+-----------------+-----------------+-----------------+-----------------+");
+}
+
 
     
 
