@@ -145,7 +145,7 @@ public class EjemploActivistas {
         Calendar fechaInicio = new GregorianCalendar(2024, 1, 1);
         Calendar fechaFin = new GregorianCalendar(2024, 3, 31);
         List<Activista> activistas2 = adao.buscarActivistaPorFecha(fechaInicio, fechaFin);
-        System.out.println("Activistas entre las fechas 1 de enero de 2024 y 31 de marzo de 2024");
+        System.out.println("Activistas entre las fechas 1 de enero de 2024 y 31 de marzo de 2024 (con parámetros)");
         for (Activista activista : activistas2) {
             System.out.println(activista.toString());
         }

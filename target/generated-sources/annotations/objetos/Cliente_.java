@@ -7,7 +7,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import objetos.Direccion;
 import objetos.Problema;
 
-@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2024-03-11T03:02:54", comments="EclipseLink-2.7.12.v20230209-rNA")
+@Generated(value="org.eclipse.persistence.internal.jpa.modelgen.CanonicalModelProcessor", date="2024-03-11T03:05:23", comments="EclipseLink-2.7.12.v20230209-rNA")
 @StaticMetamodel(Cliente.class)
 public class Cliente_ { 
 
