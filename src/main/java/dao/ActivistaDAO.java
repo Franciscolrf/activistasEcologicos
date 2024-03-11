@@ -12,12 +12,17 @@ import java.util.Calendar;
 import java.util.List;
 
 /**
- *
+ * Clase que implementa el acceso a datos de la tabla Activista
  * @author ID145
  */
 public class ActivistaDAO {
+    // Atributo que representa la conexión a la base de datos
     private EntityManager entityManager;
 
+    /**
+     * Constructor que recibe la conexión a la base de datos
+     * @param entityManager
+     */
     public ActivistaDAO(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
@@ -46,12 +51,18 @@ public class ActivistaDAO {
 
     }
 
+    /**
+     * Método que buscar activistas por fecha.
+     * @param fechaInicio
+     * @param fechaFin
+     * @return Lista de activistas
+     */
     public List<Activista> buscarActivistaPorFecha(Calendar fechaInicio, Calendar fechaFin) {
         // Se crea la consulta
         String jpql = "SELECT a FROM Activista a WHERE a.fechaInicioLabores BETWEEN :fecha1 AND :fecha2"; // Uso de between
         TypedQuery<Activista> query = entityManager.createQuery(jpql, Activista.class); // Se crea la consulta
-        query.setParameter("fecha1", fechaInicio); // Se asigna el valor a la variable
-        query.setParameter("fecha2", fechaFin); // Se asigna el valor a la variable
+        query.setParameter("fechaInicio", fechaInicio); // Se asigna el valor a la variable
+        query.setParameter("fechaFin", fechaFin); // Se asigna el valor a la variable
         return query.getResultList(); // Se ejecuta la consulta y se retorna el resultado
     }
 }
