@@ -126,11 +126,21 @@ public class EjemploActivistas {
 
         //Crear activista entre las fechas 1 de enero de 2024 y 31 de marzo de 2024
         ActivistaDAO adao = new ActivistaDAO(em);
-        Activista activista5 = new Activista("Juan", "Perez", "Lopez", "6444224133", new GregorianCalendar(2024, 1, 19));
-        Activista activista6 = new Activista("Pedro", "Manuel", "Sanchez", "6444224193", new GregorianCalendar(2024, 2, 19));
-        em.persist(activista5);
-        em.persist(activista6);
+        //Activista activista5 = new Activista("Juan", "Perez", "Lopez", "6444224133", new GregorianCalendar(2024, 1, 19));
+        //Activista activista6 = new Activista("Pedro", "Manuel", "Sanchez", "6444224193", new GregorianCalendar(2024, 2, 19));
+        //em.persist(activista5);
+        //em.persist(activista6);
+        //em.getTransaction().commit();
+        
+        Activista a = em.find(Activista.class, 14L);
+        if (a!=null) {
+            em.remove(a);
+            System.out.println("Activista eliminado");
+        }else{
+            System.out.println("Activista no encontrado");
+        }
         em.getTransaction().commit();
+
 
         //Buscar activistas entre las fechas 1 de enero de 2024 y 31 de marzo de 2024
         List<Activista> activistas = adao.buscarActivistaPorFecha();
