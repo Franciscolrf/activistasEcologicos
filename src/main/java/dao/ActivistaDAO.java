@@ -4,10 +4,54 @@
  */
 package dao;
 
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import objetos.Activista;
+
+import java.util.Calendar;
+import java.util.List;
+
 /**
  *
  * @author ID145
  */
 public class ActivistaDAO {
-    
+    private EntityManager entityManager;
+
+    public ActivistaDAO(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
+
+    /**
+     * Método que buscar activistas por fecha hardcodeada.
+     * @return Lista de activistas
+     */
+    public List<Activista> buscarActivistaPorFecha() {
+        // Se crea un objeto de tipo Calendar con la fecha 1 de enero de 2024 a las 00:00:00
+        Calendar fechaInicio = Calendar.getInstance();
+        fechaInicio.set(2024,Calendar.JANUARY,1,0,0,0);
+        fechaInicio.set(Calendar.MILLISECOND,0);
+
+        // Se crea un objeto de tipo Calendar con la fecha 31 de marzo de 2024 a las 23:59:59
+        Calendar fechaFin = Calendar.getInstance();
+        fechaFin.set(2024, Calendar.MARCH,31,23,59,59);
+        fechaFin.set(Calendar.MILLISECOND,999);
+
+        // Se crea la consulta
+        String jpql = "SELECT a FROM Activista a WHERE a.fechaInicioLabores BETWEEN :fecha1 AND :fecha2"; // Uso de between
+        TypedQuery<Activista> query = entityManager.createQuery(jpql, Activista.class); // Se crea la consulta
+        query.setParameter("fecha1", fechaInicio); // Se asigna el valor a la variable
+        query.setParameter("fecha2", fechaFin); // Se asigna el valor a la variable
+        return query.getResultList(); // Se ejecuta la consulta y se retorna el resultado
+
+    }
+
+    public List<Activista> buscarActivistaPorFecha(Calendar fechaInicio, Calendar fechaFin) {
+        // Se crea la consulta
+        String jpql = "SELECT a FROM Activista a WHERE a.fechaInicioLabores BETWEEN :fecha1 AND :fecha2"; // Uso de between
+        TypedQuery<Activista> query = entityManager.createQuery(jpql, Activista.class); // Se crea la consulta
+        query.setParameter("fecha1", fechaInicio); // Se asigna el valor a la variable
+        query.setParameter("fecha2", fechaFin); // Se asigna el valor a la variable
+        return query.getResultList(); // Se ejecuta la consulta y se retorna el resultado
+    }
 }
