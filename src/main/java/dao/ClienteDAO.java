@@ -33,7 +33,7 @@ public class ClienteDAO {
      * @param letra
      * @return Lista de clientes
      */
-    public List<Cliente> buscarClientePorLetraInicio(String letra) {
+    public List<Cliente> buscarApellidoClientePorLetraInicio(String letra) {
         String jpql = "SELECT c FROM Cliente c WHERE c.apPaterno LIKE :letra OR c.apMaterno LIKE :letra";
         TypedQuery<Cliente> query = entityManager.createQuery(jpql, Cliente.class);
         query.setParameter("letra", letra + "%");
@@ -58,7 +58,7 @@ public class ClienteDAO {
      * @param letra
      * @return Lista de clientes
      */
-    public List<Cliente> buscarClientePorLetraFinal(String letra) {
+    public List<Cliente> buscarApellidoClientePorLetraFinal(String letra) {
         String jpql = "SELECT c FROM Cliente c WHERE c.apPaterno LIKE :letra OR c.apMaterno LIKE :letra";
         TypedQuery<Cliente> query = entityManager.createQuery(jpql, Cliente.class);
         query.setParameter("letra", "%" + letra);

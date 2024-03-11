@@ -4,6 +4,7 @@
 package com.mycompany.ejemploactivistas;
 
 import dao.ActivistaDAO;
+import dao.ClienteDAO;
 import java.util.*;
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaQuery;
@@ -149,5 +150,24 @@ public class EjemploActivistas {
         for (Activista activista : activistas2) {
             System.out.println(activista.toString());
         }
+        // Prueba del método creado en ClienteDAO para buscar una lista de Clientes que su apellido inicie o termine con la letra A. 
+        ClienteDAO cdao = new ClienteDAO(em);
+        List<Cliente> clientesInicio = cdao.buscarApellidoClientePorLetraInicio("A");
+        System.out.println("Clientes cuyo apellido paterno o materno inicie con la letra A");
+        for (Cliente cliente : clientesInicio) {
+            System.out.println(cliente.toString());
+        }
+        List<Cliente> clientesFinal = cdao.buscarApellidoClientePorLetraFinal("A");
+        System.out.println("Clientes cuyo apellido paterno o materno termine con la letra A");
+        for (Cliente cliente : clientesFinal) {
+            System.out.println(cliente.toString());
+        }
+    
     }
+
+        
+
+
+       
+
 }
