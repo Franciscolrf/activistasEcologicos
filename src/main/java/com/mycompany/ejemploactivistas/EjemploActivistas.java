@@ -3,6 +3,7 @@
  */
 package com.mycompany.ejemploactivistas;
 
+import dao.ActivistaDAO;
 import java.util.*;
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaQuery;
