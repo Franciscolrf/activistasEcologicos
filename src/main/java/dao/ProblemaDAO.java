@@ -20,7 +20,12 @@ public class ProblemaDAO {
         this.entityManager = entityManager;
     }
 
-    
+
+    /***
+     * Método para buscar un problema cuya descripción contenga la palabra clave
+     * @param palabraClave
+     * @return Lista de problemas
+     */
     public List<Problema> buscarProblemaPorDescripcion(String palabraClave){
         String jpql = "SELECT p FROM Problema p WHERE p.descripcion LIKE :palabraClave";
         TypedQuery<Problema> query = entityManager.createQuery(jpql, Problema.class);
