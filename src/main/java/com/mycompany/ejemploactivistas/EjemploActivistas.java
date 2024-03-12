@@ -135,24 +135,24 @@ public class EjemploActivistas {
         
 
 
-        //Buscar activistas entre las fechas 1 de enero de 2024 y 31 de marzo de 2024
-        //List<Activista> activistas = adao.buscarActivistaPorFecha();
-        //System.out.println("Activistas entre las fechas 1 de enero de 2024 y 31 de marzo de 2024");
-        //for (Activista activista : activistas) {
-        //    System.out.println(activista.toString());
-        //}
+        /*Buscar activistas entre las fechas 1 de enero de 2024 y 31 de marzo de 2024
+        List<Activista> activistas = adao.buscarActivistaPorFecha();
+        System.out.println("Activistas entre las fechas 1 de enero de 2024 y 31 de marzo de 2024");
+        for (Activista activista : activistas) {
+            System.out.println(activista.toString());
+        }*/
 
-        //Prueba de método con parámetros
-        //Calendar fechaInicio = new GregorianCalendar(2024, 1, 1);
-        //Calendar fechaFin = new GregorianCalendar(2024, 3, 31);
-        //List<Activista> activistas2 = adao.buscarActivistaPorFecha(fechaInicio, fechaFin);
-        //System.out.println("Activistas entre las fechas 1 de enero de 2024 y 31 de marzo de 2024 (con parámetros)");
-        //for (Activista activista : activistas2) {
-        //    System.out.println(activista.toString());
-        //}
+        /*Prueba de método con parámetros
+        Calendar fechaInicio = new GregorianCalendar(2024, 1, 1);
+        Calendar fechaFin = new GregorianCalendar(2024, 3, 31);
+        List<Activista> activistas2 = adao.buscarActivistaPorFecha(fechaInicio, fechaFin);
+        System.out.println("Activistas entre las fechas 1 de enero de 2024 y 31 de marzo de 2024 (con parámetros)");
+        for (Activista activista : activistas2) {
+            System.out.println(activista.toString());
+        }*/
 
         
-        // Prueba del método creado en ClienteDAO para buscar una lista de Clientes que su apellido inicie o termine con la letra A. 
+        /*  Prueba del método creado en ClienteDAO para buscar una lista de Clientes que su apellido inicie o termine con la letra A. 
         ClienteDAO cdao = new ClienteDAO(em);
         List<Cliente> clientesInicio = cdao.buscarApellidoClientePorLetraInicio("A");
         System.out.println("Clientes cuyo apellido paterno o materno inicie con la letra A");
@@ -164,6 +164,9 @@ public class EjemploActivistas {
         for (Cliente cliente : clientesFinal) {
             System.out.println(cliente.toString());
         }
+        */
+
+        /*Prueba  */
     
     }
 
