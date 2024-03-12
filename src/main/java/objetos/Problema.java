@@ -35,39 +35,70 @@ public class Problema implements Serializable {
             inverseJoinColumns=@JoinColumn(name="idActivista")
             )
     private List<Activista> activistasRelacionados;
+    @Column(name = "descripcion")
+    private String descripcion;
 
-    public Problema(Long id, Calendar fechaInicio, Calendar fechaFinal, String estado, Cliente idCliente, List<Activista> activistasRelacionados) {
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public Problema(Long id, Calendar fechaInicio, Calendar fechaFinal, String estado, Cliente idCliente, List<Activista> activistasRelacionados, String descripcion) {
         this.id = id;
         this.fechaInicio = fechaInicio;
         this.fechaFinal = fechaFinal;
         this.estado = estado;
         this.idCliente = idCliente;
         this.activistasRelacionados = activistasRelacionados;
+        this.descripcion = descripcion;
     }
 
-    public Problema(Calendar fechaInicio, Calendar fechaFinal, String estado, Cliente idCliente, List<Activista> activistasRelacionados) {
+    public Problema(Calendar fechaInicio, Calendar fechaFinal, String estado, Cliente idCliente, List<Activista> activistasRelacionados, String descripcion) {
         this.fechaInicio = fechaInicio;
         this.fechaFinal = fechaFinal;
         this.estado = estado;
         this.idCliente = idCliente;
         this.activistasRelacionados = activistasRelacionados;
+        this.descripcion = descripcion;
     }
 
-    public Problema(Calendar fechaInicio, String estado, Cliente idCliente, List<Activista> activistasRelacionados) {
-        this.fechaInicio = fechaInicio;
-        this.estado = estado;
-        this.idCliente = idCliente;
-        this.activistasRelacionados = activistasRelacionados;
-    }
-
-    public Problema(Long id, Calendar fechaFinal, String estado, Cliente idCliente, List<Activista> activistasRelacionados) {
+    public Problema(Long id, Calendar fechaInicio, String estado, Cliente idCliente, List<Activista> activistasRelacionados, String descripcion) {
         this.id = id;
-        this.fechaFinal = fechaFinal;
+        this.fechaInicio = fechaInicio;
         this.estado = estado;
         this.idCliente = idCliente;
         this.activistasRelacionados = activistasRelacionados;
+        this.descripcion = descripcion;
     }
 
+    public Problema(Calendar fechaInicio, String estado, Cliente idCliente, List<Activista> activistasRelacionados, String descripcion) {
+        this.fechaInicio = fechaInicio;
+        this.estado = estado;
+        this.idCliente = idCliente;
+        this.activistasRelacionados = activistasRelacionados;
+        this.descripcion = descripcion;
+    }
+
+    public Problema(Calendar fechaInicio, Calendar fechaFinal, String estado, Cliente idCliente, String descripcion) {
+        this.fechaInicio = fechaInicio;
+        this.fechaFinal = fechaFinal;
+        this.estado = estado;
+        this.idCliente = idCliente;
+        this.descripcion = descripcion;
+    }
+
+    public Problema(Calendar fechaInicio, String estado, Cliente idCliente, String descripcion) {
+        this.fechaInicio = fechaInicio;
+        this.estado = estado;
+        this.idCliente = idCliente;
+        this.descripcion = descripcion;
+    }
+
+    
+    
     
     public List<Activista> getActivistasRelacionados() {
         return activistasRelacionados;

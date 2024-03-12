@@ -5,6 +5,7 @@ package com.mycompany.ejemploactivistas;
 
 import dao.ActivistaDAO;
 import dao.ClienteDAO;
+import dao.ProblemaDAO;
 import java.util.*;
 import javax.persistence.*;
 import javax.persistence.criteria.CriteriaQuery;

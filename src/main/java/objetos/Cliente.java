@@ -30,17 +30,6 @@ public class Cliente implements Serializable {
     @OneToMany(mappedBy = "idCliente", cascade = CascadeType.ALL)
     private List<Problema> problemas;
 
-    @Column(name = "descripcion")
-    private String descripcion;
-
-    public String getDescripcion() {
-        return descripcion;
-    }
-
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
-    }
-
     public List<Direccion> getDirecciones() {
         return direcciones;
     }

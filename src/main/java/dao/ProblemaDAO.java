@@ -4,6 +4,11 @@
  */
 package dao;
 
+import java.util.List;
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+import objetos.Problema;
+
 /**
  *
  * @author ID145
@@ -16,7 +21,7 @@ public class ProblemaDAO {
      * Constructor que recibe la conexión a la base de datos
      * @param entityManager
      */
-    public ClienteDAO(EntityManager entityManager) {
+    public ProblemaDAO(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
