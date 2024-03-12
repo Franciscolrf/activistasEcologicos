@@ -157,7 +157,7 @@ public class EjemploActivistas {
  /*Prueba para el método buscarProblemaPorDescripcion en la clase ProblemaDAO */
         ProblemaDAO pdao = new ProblemaDAO(em);
 
-        // Creación de clientes
+        /* Creación de clientes
         Cliente cliente1 = new Cliente();
         cliente1.setNombres("Juan");
         cliente1.setApPaterno("Pérez");
@@ -169,7 +169,7 @@ public class EjemploActivistas {
         cliente2.setApMaterno("López");
         em.persist(cliente1);
         em.persist(cliente2);
-
+        *
         // Creación de fechas
         Calendar fechaInicio1 = new GregorianCalendar(2023, Calendar.APRIL, 13);
         Calendar fechaFin1 = new GregorianCalendar(2024, Calendar.APRIL, 13);
@@ -184,7 +184,7 @@ public class EjemploActivistas {
         em.persist(problema1);
         em.persist(problema2);
         em.getTransaction().commit();
-
+        */
         // Búsqueda de problemas con la palabra clave "Contaminación"
         List<Problema> problemas = pdao.buscarProblemaPorDescripcion("Contaminación");
         System.out.println("Problemas cuya descripción contenga la palabra clave 'Contaminación'");
