@@ -16,7 +16,7 @@ import objetos.*;
  * @author ID145
  */
 public class EjemploActivistas {
-
+    
     public static void main(String[] args) {
         EntityManagerFactory mf = Persistence.createEntityManagerFactory("com.mycompany_ejemploActivistas_jar_1.0-SNAPSHOTPU");
         EntityManager em = mf.createEntityManager();
@@ -32,9 +32,8 @@ public class EjemploActivistas {
         em.persist(activista3);
         em.persist(activista4);
         em.getTransaction().commit();
-        */ 
-        
-         /*BUSCAR ACTIVISTA 
+         */
+ /*BUSCAR ACTIVISTA 
         Activista a = em.find(Activista.class, 1L);
         if (a!=null) {
             System.out.println(a.toString());
@@ -44,7 +43,7 @@ public class EjemploActivistas {
         em.getTransaction().commit();
          */
 
-        /*Actualizar Activista
+ /*Actualizar Activista
         Activista a = em.find(Activista.class, 1L);
         if (a != null) {
             System.out.println("Activista antes de la actualización: ");
@@ -60,10 +59,8 @@ public class EjemploActivistas {
         } else {
             System.out.println("Activista no encontrado");
         }
-        */
-
-
-        /*ELIMINAR ACTIVISTA 
+         */
+ /*ELIMINAR ACTIVISTA 
         Activista a = em.find(Activista.class, 2L);
         if (a!=null) {
             em.remove(a);
@@ -74,7 +71,7 @@ public class EjemploActivistas {
         em.getTransaction().commit();
          */
 
-        /*SELECT DE TODOS LOS ACTIVISTAS
+ /*SELECT DE TODOS LOS ACTIVISTAS
         CriteriaQuery criteria = em.getCriteriaBuilder().createQuery();
         criteria.select(criteria.from(Activista.class));
         Query query = em.createQuery(criteria);
@@ -83,10 +80,8 @@ public class EjemploActivistas {
             System.out.println(activista.toString());
         }
         em.getTransaction().commit();
-        */
-
-
-        /* Crear cliente y agregar dirección
+         */
+ /* Crear cliente y agregar dirección
         Cliente c = new Cliente();
         c.setNombres("Pancho");
         c.setApPaterno("Pantera");
@@ -97,9 +92,8 @@ public class EjemploActivistas {
         c.setDirecciones(ds);
         em.persist(c);
         em.getTransaction().commit();
-        */
- 
-         /* 
+         */
+ /* 
         List<Activista> ac = new ArrayList();
         Activista activista3 = new Activista("Jose","Torres","god","6444224133",new GregorianCalendar(2021, 6, 19));
         em.persist(activista3);
@@ -122,10 +116,8 @@ public class EjemploActivistas {
         em.persist(p);
 
         em.getTransaction().commit();
-        */
-
+         */
         // Pruebas para los métodos de ActivistaDAO 
-
         //Crear activista entre las fechas 1 de enero de 2024 y 31 de marzo de 2024
         //ActivistaDAO adao = new ActivistaDAO(em);
         //Activista activista5 = new Activista("Juan", "Perez", "Lopez", "6444224133", new GregorianCalendar(2024, 1, 19));
@@ -133,9 +125,6 @@ public class EjemploActivistas {
         //em.persist(activista5);
         //em.persist(activista6);
         //em.getTransaction().commit();
-        
-
-
         /*Buscar activistas entre las fechas 1 de enero de 2024 y 31 de marzo de 2024
         List<Activista> activistas = adao.buscarActivistaPorFecha();
         System.out.println("Activistas entre las fechas 1 de enero de 2024 y 31 de marzo de 2024");
@@ -143,7 +132,7 @@ public class EjemploActivistas {
             System.out.println(activista.toString());
         }*/
 
-        /*Prueba de método con parámetros
+ /*Prueba de método con parámetros
         Calendar fechaInicio = new GregorianCalendar(2024, 1, 1);
         Calendar fechaFin = new GregorianCalendar(2024, 3, 31);
         List<Activista> activistas2 = adao.buscarActivistaPorFecha(fechaInicio, fechaFin);
@@ -151,9 +140,7 @@ public class EjemploActivistas {
         for (Activista activista : activistas2) {
             System.out.println(activista.toString());
         }*/
-
-        
-        /*  Prueba del método creado en ClienteDAO para buscar una lista de Clientes que su apellido inicie o termine con la letra A. 
+ /*  Prueba del método creado en ClienteDAO para buscar una lista de Clientes que su apellido inicie o termine con la letra A. 
         ClienteDAO cdao = new ClienteDAO(em);
         List<Cliente> clientesInicio = cdao.buscarApellidoClientePorLetraInicio("A");
         System.out.println("Clientes cuyo apellido paterno o materno inicie con la letra A");
@@ -165,18 +152,36 @@ public class EjemploActivistas {
         for (Cliente cliente : clientesFinal) {
             System.out.println(cliente.toString());
         }
-        */
+         */
 
-        /*Prueba para el método buscarProblemaPorDescripcion en la clase ProblemaDAO */
+ /*Prueba para el método buscarProblemaPorDescripcion en la clase ProblemaDAO */
         ProblemaDAO pdao = new ProblemaDAO(em);
 
-        // Creación de problema con la palabra clave "Contaminación"
-        Problema problema1 = new Problema(new GregorianCalendar(2023, 3, 13), new GregorianCalendar(2024, 3, 13), "Pendiente", "Contaminación");
-        em.persist(problema1);
-        em.getTransaction().commit();
+        // Creación de clientes
+        Cliente cliente1 = new Cliente();
+        cliente1.setNombres("Juan");
+        cliente1.setApPaterno("Pérez");
+        cliente1.setApMaterno("Gómez");
+        
+        Cliente cliente2 = new Cliente();
+        cliente2.setNombres("María");
+        cliente2.setApPaterno("González");
+        cliente2.setApMaterno("López");
+        em.persist(cliente1);
+        em.persist(cliente2);
 
-        //Creación de problema con otra palabra que no sea "Contaminación"
-        Problema problema2 = new Problema(new GregorianCalendar(2023, 3, 13), new GregorianCalendar(2024, 3, 13), "Pendiente", "Basura");
+        // Creación de fechas
+        Calendar fechaInicio1 = new GregorianCalendar(2023, Calendar.APRIL, 13);
+        Calendar fechaFin1 = new GregorianCalendar(2024, Calendar.APRIL, 13);
+        
+        Calendar fechaInicio2 = new GregorianCalendar(2023, Calendar.MAY, 20);
+        Calendar fechaFin2 = new GregorianCalendar(2024, Calendar.MAY, 20);
+
+        // Creación de problemas con los clientes y las fechas
+        Problema problema1 = new Problema(fechaInicio1, fechaFin1, "Pendiente", cliente1, "Contaminación");
+        Problema problema2 = new Problema(fechaInicio2, fechaFin2, "Pendiente", cliente2, "Basura");
+        
+        em.persist(problema1);
         em.persist(problema2);
         em.getTransaction().commit();
 
@@ -186,12 +191,7 @@ public class EjemploActivistas {
         for (Problema problema : problemas) {
             System.out.println(problema.toString());
         }
-    
-    }
-
         
-
-
-       
-
+    }
+    
 }
