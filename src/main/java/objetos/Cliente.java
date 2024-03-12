@@ -13,7 +13,7 @@ import javax.persistence.*;
  * @author Laboratorios
  */
 @Entity
-@Table(name="cliente")
+@Table(name = "cliente")
 public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -21,14 +21,25 @@ public class Cliente implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombres;
-    @Column(name="ap_paterno")
+    @Column(name = "ap_paterno")
     private String apPaterno;
-    @Column(name="ap_materno")
+    @Column(name = "ap_materno")
     private String apMaterno;
-    @OneToMany(mappedBy="cliente", cascade= CascadeType.ALL)
-    private List<Direccion>direcciones;
+    @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    private List<Direccion> direcciones;
     @OneToMany(mappedBy = "idCliente", cascade = CascadeType.ALL)
     private List<Problema> problemas;
+
+    @Column(name = "descripcion")
+    private String descripcion;
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
     public List<Direccion> getDirecciones() {
         return direcciones;
@@ -61,8 +72,7 @@ public class Cliente implements Serializable {
     public void setApMaterno(String apMaterno) {
         this.apMaterno = apMaterno;
     }
-    
-    
+
     public Long getId() {
         return id;
     }
@@ -91,7 +101,8 @@ public class Cliente implements Serializable {
         this.apMaterno = apMaterno;
     }
 
-    public Cliente(Long id, String nombres, String apPaterno, String apMaterno, List<Direccion> direcciones, List<Problema> problemas) {
+    public Cliente(Long id, String nombres, String apPaterno, String apMaterno, List<Direccion> direcciones,
+            List<Problema> problemas) {
         this.id = id;
         this.nombres = nombres;
         this.apPaterno = apPaterno;
@@ -100,7 +111,8 @@ public class Cliente implements Serializable {
         this.problemas = problemas;
     }
 
-    public Cliente(String nombres, String apPaterno, String apMaterno, List<Direccion> direcciones, List<Problema> problemas) {
+    public Cliente(String nombres, String apPaterno, String apMaterno, List<Direccion> direcciones,
+            List<Problema> problemas) {
         this.nombres = nombres;
         this.apPaterno = apPaterno;
         this.apMaterno = apMaterno;
@@ -115,8 +127,6 @@ public class Cliente implements Serializable {
     public void setProblemas(List<Problema> problemas) {
         this.problemas = problemas;
     }
-    
-    
 
     @Override
     public int hashCode() {
@@ -140,11 +150,8 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "Cliente{" + "id=" + id + ", nombres=" + nombres + ", apPaterno=" + apPaterno + ", apMaterno=" + apMaterno + '}';
+        return "Cliente{" + "id=" + id + ", nombres=" + nombres + ", apPaterno=" + apPaterno + ", apMaterno="
+                + apMaterno + '}';
     }
 
-    
-
-    
-    
 }
