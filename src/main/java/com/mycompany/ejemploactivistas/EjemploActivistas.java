@@ -166,7 +166,25 @@ public class EjemploActivistas {
         }
         */
 
-        /*Prueba  */
+        /*Prueba para el método buscarProblemaPorDescripcion en la clase ProblemaDAO */
+        ProblemaDAO pdao = new ProblemaDAO(em);
+
+        // Creación de problema con la palabra clave "Contaminación"
+        Problema problema1 = new Problema(new GregorianCalendar(2023, 3, 13), new GregorianCalendar(2024, 3, 13), "Pendiente", "Contaminación");
+        em.persist(problema1);
+        em.getTransaction().commit();
+
+        //Creación de problema con otra palabra que no sea "Contaminación"
+        Problema problema2 = new Problema(new GregorianCalendar(2023, 3, 13), new GregorianCalendar(2024, 3, 13), "Pendiente", "Basura");
+        em.persist(problema2);
+        em.getTransaction().commit();
+
+        // Búsqueda de problemas con la palabra clave "Contaminación"
+        List<Problema> problemas = pdao.buscarProblemaPorDescripcion("Contaminación");
+        System.out.println("Problemas cuya descripción contenga la palabra clave 'Contaminación'");
+        for (Problema problema : problemas) {
+            System.out.println(problema.toString());
+        }
     
     }
 
