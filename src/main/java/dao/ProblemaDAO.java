@@ -43,7 +43,6 @@ public class ProblemaDAO {
      * Método para buscar problemas por cliente utilizando group by
      * @param idCliente
      * @return Lista de problemas
-     * @throws Exception
      */
     public List<Problema> buscarProblemasPorCliente(Long idCliente) throws Exception {
         // Consulta para buscar problemas por cliente utilizando la consulta Group BY
@@ -52,5 +51,5 @@ public class ProblemaDAO {
         query.setParameter("idCliente", idCliente);
         return query.getResultList();
     }
-    
+
 }
