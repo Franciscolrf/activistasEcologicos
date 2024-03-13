@@ -38,4 +38,19 @@ public class ProblemaDAO {
         return query.getResultList();
 
     }
+
+    /**
+     * Método para buscar problemas por cliente utilizando group by
+     * @param idCliente
+     * @return Lista de problemas
+     * @throws Exception
+     */
+    public List<Problema> buscarProblemasPorCliente(Long idCliente) throws Exception {
+        // Consulta para buscar problemas por cliente utilizando la consulta Group BY
+        String jpql = "SELECT p FROM Problema p WHERE p.cliente.id = :idCliente GROUP BY p.id";
+        TypedQuery<Problema> query = entityManager.createQuery(jpql, Problema.class);
+        query.setParameter("idCliente", idCliente);
+        return query.getResultList();
+    }
+    
 }
