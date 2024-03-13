@@ -40,16 +40,15 @@ public class ProblemaDAO {
     }
 
     /**
-     * Método para buscar problemas por cliente utilizando group by
-     * @param idCliente
-     * @return Lista de problemas
+     * Método para agrupar problemas por estado, mostrando la cantidad por estado.
+     * @return Lista de problemas agrupados por estado
      */
-    public List<Problema> buscarProblemasPorCliente(Long idCliente) throws Exception {
-        // Consulta para buscar problemas por cliente utilizando la consulta Group BY
-        String jpql = "SELECT p FROM Problema p WHERE p.cliente.id = :idCliente GROUP BY p.id";
-        TypedQuery<Problema> query = entityManager.createQuery(jpql, Problema.class);
-        query.setParameter("idCliente", idCliente);
+    public List<Object[]> agruparProblemasPorEstado(){
+        String jpql = "SELECT p.estado, COUNT(p) FROM Problema p GROUP BY p.estado";
+        TypedQuery<Object[]> query = entityManager.createQuery(jpql, Object[].class);
         return query.getResultList();
     }
+
+    
 
 }

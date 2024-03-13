@@ -77,6 +77,18 @@ public class ClienteDAO {
         return query.getResultList();
     }
 
+    /**
+     * Método para buscar cliente por problemas utilizando la sentencia GROUP BY
+     * @param idProblema
+     * @return Lista de clientes
+     */
+    public List<Cliente> buscarClientesPorProblema(Long idProblema) {
+        String jpql = "SELECT c FROM Cliente c JOIN c.problemas p WHERE p.id = :idProblema GROUP BY c.id";
+        TypedQuery<Cliente> query = entityManager.createQuery(jpql, Cliente.class);
+        query.setParameter("idProblema", idProblema);
+        return query.getResultList();
+    }
+
 
 
 }
